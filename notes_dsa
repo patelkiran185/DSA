@@ -1,52 +1,42 @@
 dequeue is expensive
 -> enqueue is simply pushing the data
-->dequeue 1. if s1 and s2 both are empty return
-          2. if s2 is empty , push the elements of s1 into s2, push into s2, pop s1
-          3. then pop from s2
-
+->dequeue 1. if s1 and s2 both are empty return 2. if s2 is empty , push the elements of s1 into s2, push into s2, pop s1 3. then pop from s2
 
 enqueue is expensive
-->enqueue 1. if s1 is empty, move from s1 to s2
-          2. new data is then pushed to s1.
-          3. if s2 is not empty, push data in s1 and pop s2
-->dequeue s1 is empty then exit, if not simply pop 
-
-
+->enqueue 1. if s1 is empty, move from s1 to s2 2. new data is then pushed to s1. 3. if s2 is not empty, push data in s1 and pop s2
+->dequeue s1 is empty then exit, if not simply pop
 
 create a stack using queue
 queue has two operations enqueue and dequeue
-in the driver code 
+in the driver code
 Stack s
 s.push()->enqueue
 s.pop()->dequeue
 
-
 Binary Tree:
+
 - A tree data structure in which each node has at most two children, referred to as the left child and the right child.
 - The topmost node in the tree is called the root.
 
 Types of Binary Trees:
+
 1. Full Binary Tree: A binary tree in which every node has either 0 or 2 children.
 2. Complete Binary Tree: A binary tree in which all levels are completely filled except possibly the last level, which is filled from left to right.
 3. Perfect Binary Tree: A binary tree in which all internal nodes have two children and all leaves are at the same level.
 4. Balanced Binary Tree: A binary tree in which the height of the left and right subtrees of every node differ by at most 1.
 
 Traversal Methods:
+
 1. Inorder (Left, Root, Right)
 2. Preorder (Root, Left, Right)
 3. Postorder (Left, Right, Root)
 
 Applications:
+
 - Binary Search Trees: Used in many search applications where data is constantly entering/leaving.
 - Heap: Binary Heap is used to implement Priority Queues.
 - Hashing: Binary trees are used in Hashing to maintain AVL trees.
 - Graphs: Binary trees are used in finding shortest path in a graph.
-
-
-
-
-<!-- dashavatar,darwin evolution -->
-
 
 A timeline can be represented using a linear data structure, specifically an array or a linked list.
 
@@ -55,48 +45,14 @@ In a timeline, events are usually ordered based on their occurrence in time, whi
 For example, in an array, the index could represent the time (e.g., hours, days, years), and the value at each index could represent the event that occurred at that time. In a linked list, each node could contain an event and a timestamp, and the nodes could be sorted by their timestamps.
 
 <!-- DS -->
+
 Linear data structure (Array,Linked list, stacks and queues)
 Non Linear data structure (Trees, graphs)
- 
+
 Why non-linear data structure?
 Because it is used to solve complex problems, and depict the relationship between two nodes
-It represents heirarchical and network based entities 
+It represents heirarchical and network based entities
 It is also memory efficient.
 Tree is a special kind of grap
-
-Graphs
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

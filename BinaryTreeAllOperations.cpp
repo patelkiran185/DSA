@@ -234,23 +234,7 @@ int main(){
     bt.inOrder(root);
     cout<<"PostOrder\n";
     bt.postOrder(root);
+    cout<<endl;
     return 0;
 }
 // 1 2 3 -1 -1 4 -1 -1 3 5 -1 -1 6 -1 -1
-
-
-void BinaryTree :: levelOrder(Node*root){
-    if(!root) return;
-    queue<Node*>qu;
-    qu.push(root);
-    while(!qu.empty()){
-        for(int i =0 ; i< qu.size();i++){
-            Node * Front = qu.front();
-            qu.pop();
-            if(Front->left) qu.push(Front->left);
-            if(Front->right) qu.push(Front->right);
-            cout<<Front->val<<" ";
-        }
-        cout<<endl;
-    }
-}

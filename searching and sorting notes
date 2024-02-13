@@ -1,0 +1,23 @@
+searching and sorting notes
+
+(#include<stdio.h>
+using namespace std;) common for all programs
+
+
+Merge Sort
+1. void Merge(int A[], int l, int mid, int h)  
+two temp arrays, copying the elements using for loops, while to loop to traverse and add the elements
+two while loops for i<n1,j<n2
+2. void MergeSort(int A[], int l, int h) 3 functions 
+3. int main()
+
+Quick Sort
+1. int Partition(int A[], int l, int h)
+2. void QuickSort(int A[], int l, int h)
+3. int main()
+
+
+Searching
+linear and binary 
+o(n) is the complexity of linear search 
+binary search complexity is less than linear search which is o(log n base 2 )

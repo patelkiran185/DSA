@@ -1,120 +1,125 @@
-// Binary Search Tree implementation using linked list
+
+
+// binary tree search
+
+
+
 #include<iostream>
-#include<queue>
-#include "TreeNode.cpp"
 using namespace std;
-class BST{
 
+class Node{
     public:
-        BST(){
-
-        }
-        Node* insertToBST(Node*&,int);
-        void takeInput(Node*&);
-        bool searchInBST(Node*,int);
-        void printBST(Node*);
-
+    int data;
+    Node*left;
+    Node*right;
+    
+    Node(int d){
+        data = d;
+        left = NULL;
+        right = NULL;
+    }
 };
+    
+Node*findMin(Node*root){
+    Node*temp = root;
+    while(temp->left!=NULL){
+        temp = temp->left;
+    }
+    return temp;
+}
 
-Node* BST :: insertToBST(Node* &root ,int data){
-    // Insertion in a BST is  of :- O(logn) Time complexity
-    if(root==NULL){
-        root = new Node(data);
+Node*insert(Node*root, int key){
+    Node*nn = new Node(key);
+        if(root==NULL){
+            return nn;
+    }
+    if(key<root->data){
+        root->left = insert(root->left,key);
+    }
+    else if(key>root->data){
+        root->right = insert(root->right,key);
+    }
+    return root;
+}
+    
+Node*search(Node*root,int key){
+    if(root->data==key){
         return root;
     }
-
-    if(data < root->val){
-        // Go to left
-        root->left = insertToBST(root->left,data);
-        
+    if(key<root->data){
+        return search(root->left,key);
     }
-
     else{
-        // Go to left
-        root->right = insertToBST(root->right,data);
+        return search(root->right,key);
     }
-
-    return root;
-
 }
-void BST :: takeInput(Node* &root){
-    int data;
-    cout << "\nEnter data : \n" ;
-    cin >> data;
-
-    while(data!=-1){
-        root = insertToBST(root,data);
-        cin >> data;
-    }
-
     
-}
-
-bool BST :: searchInBST(Node* root,int val){
-
-    while(root!=NULL){
-
-        if(val == root->val) return true;
-        if(val < root->val){
-            // Go to left subtree
-            root = root->left;
-        }
-
-        if(val > root->val){
-            // Go to right sub tree and search
-            root = root->right;
-        }
+Node*deleteNode(Node*root,int key){
+    if(root==NULL){
+        return root;
     }
-
-    return false;
-
-}
-
-void BST :: printBST(Node* root){
-
-
-    if(root==nullptr) return ;
-
-    // Level-Order means --> printing elements level wise 
-    cout << "\nLevel Order traversal of given BST is : \n " ;
-    queue<Node*> qu;
-    qu.push(root);
-
-    while(!qu.empty()){
-        
-        int queue_Size = qu.size();
-        for(int i=0;i<queue_Size;i++){
-            Node* Front = qu.front();
-            qu.pop();
-
-            if(Front->left) qu.push(Front->left);
-            if(Front->right) qu.push(Front->right);
-            cout << (Front->val) << " ";
-
-        }
-        cout << endl;
-
+    if(key<root->data){
+        root->left = deleteNode(root->left,key);
     }
-
-    return ;
-
+    else if(key>root->data){
+        root->right = deleteNode(root->right,key);
+    }
+    else{
+        if(root->left==NULL){
+            Node*temp = root->right;
+            delete root;
+            return temp;
+        }
+        else if(root->right==NULL){
+            Node*temp = root->left;
+            delete root;
+            return temp;
+        }
+        Node*temp = findMin(root->right);
+        root->data = temp->data;
+        root->right = deleteNode(root->right,temp->data);
+    }
+    return root;
+}
+    
+void inorder(Node*root){
+    if(root!=NULL){
+        inorder(root->left);
+        cout<<root->data<<" ";
+        inorder(root->right);
+    }
 }
 
 int main(){
-
-    Node* root = NULL;
-    BST bst;
-    bst.takeInput(root);
-    bst.printBST(root);
-
+    Node*root = NULL;
+    root = insert(root, 5);
+    insert(root, 3);
+    insert(root, 7);
+    insert(root, 2);
+    insert(root, 4);
+    insert(root, 6);
+    insert(root, 8);
+    int key = 4;
+    Node* result = search(root, key);
+    if (result != NULL) {
+        cout << "Node with key " << key << " found!" << endl;
+    }
+    else{
+        cout << "Node with key " << key << " not found!" << endl;
+    }
     
-    int N;
-    cout << "Enter number to be searched in BST : ";
-    cin >> N;
-    bool found = bst.searchInBST(root,N);
-    if(found) cout << N << " Found\n";
-    else cout << N << " Not found\n";
+    cout<<"inorder: "<<endl;
+    inorder(root);
     
-
+    key = 3;
+    root = deleteNode(root, key);
+    cout << "Node with key " << key << " deleted!" << endl;
+    
+    inorder(root);
     return 0;
 }
+
+
+
+
+

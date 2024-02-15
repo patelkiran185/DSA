@@ -1,9 +1,6 @@
 
 
 // binary tree search
-
-
-
 #include<iostream>
 using namespace std;
 

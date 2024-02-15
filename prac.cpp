@@ -219,3 +219,96 @@
 // }
 
 
+#include<iostream>
+using namespace std;
+
+// void Merge(int arr[],int l,int mid, int r){
+//     int n1=mid-1+l;
+//     int n2=r-mid;
+//     int  a[n1];
+//     int b[n2];
+//     for(int i=0;i<n1;i++){
+//         a[i]=a[l+1];
+//     }
+//     for(int i=0;i<n2;i++){
+//         b[i]=b[mid+1+i];
+//     }
+//     int i=0,j=0,k=l;
+//     while(i<n1 && j<n2){
+//         if(a[i]<b[j]){
+//             a[k]=a[i];
+//             i++;
+//             k++;
+//         }
+//         else{
+//             a[k]=b[j];
+//             j++;
+//             k++
+//         }
+//     }
+//     while(i<n1){
+//         a[k]=a[i];
+//         i++;
+//         k++;
+//     }
+//     while(j<n2){
+//         a[k]=b[j];
+//         j++;
+//         k++;
+//     }
+// }
+// int binarySearch(int arr[],int n,int key){
+//     int e=0;
+//     int s=n;
+//    while(s<=e){
+//     int mid=(s+e)/2;
+//     if(arr[mid]==key){
+//         return mid;
+//     }
+//     else if (arr[mid]>key){
+//         e=mid-1;
+//     }
+//     else{
+//         s=mid+1;
+//     }
+//    }
+//    return -1;
+
+
+// }
+// int main(){
+//     int arr[10];
+//     for (int i=0;i<10;i++){
+//         cin>>arr[i];
+//     }
+//     return 0;
+// }
+
+
+const int MAX_VERTICES=10;
+class Graph{
+    private:
+    int numVertices;
+    int adjacencyMatrix[MAX_VERTICES][MAX_VERTICES];
+    public:
+    Graph(int vertices){
+        numVertices=vertices;
+        for(int i=0;i<numVertices;i++){
+            for(int j=0;j<numVertices;j++){
+                adjacencyMatrix[i][j]=0;
+            }
+        }
+    }
+    void addEdge(int u,int v){
+        adjacencyMatrix[u][v]=1;
+        adjacencyMatrix[v][u]=1;
+    }
+    void printMatrix(){
+        for(int i=0;i<numVertices;i++){
+            for(int j=0;numVertices;++){
+                cout<<adjacencyMatrix[i][j]<<" ";
+            }
+            cout<<endl;
+        }
+    }
+}

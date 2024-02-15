@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-const int MAX_VERTICES=4;
+const int MAX_VERTICES=10;
 class Graph{
     private:
     int numVertices;

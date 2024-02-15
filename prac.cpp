@@ -1,5 +1,5 @@
-#include<iostream>
-using namespace std;
+// #include<iostream>
+// using namespace std;
 
 // // class Node{
 // //     public:
@@ -171,49 +171,51 @@ using namespace std;
 // }
 
 
-class Node{
-    public: 
-    int val;
-    Node* next;
-    Node(int data){
-        val=data;
-        next=NULL;
-    }
-};
-class Stack{
-    public:
-    Node*top=NULL;
-    bool isEmpty{
-        return top==NULL;
-    }
-    void push(int val){
-        Node * nn = new Node(val);
-        nn->next=top;
-        top=nn;
-    }
-    int pop(){
-        if(isEmpty()){
-            cout<<"Empty";
-            return;
-        }
-        int popped=top->data;
-        Node* temp=top;
-        top=top->next;
-        delete temp;
-        cout<<"Pop";
-        return popped;
-    }
-    void display(){
-        if(isEmpty()){
-            cout<<"Empty";
-            return;
-        }
-        Node* temp=top;
-        while(temp!=NULL){
-            cout<<temp->data<<" ";
-            temp=temp->next;
-        }
-        cout<<endl;
-    }
+// class Node{
+//     public: 
+//     int val;
+//     Node* next;
+//     Node(int data){
+//         val=data;
+//         next=NULL;
+//     }
+// };
+// class Stack{
+//     public:
+//     Node*top=NULL;
+//     bool isEmpty{
+//         return top==NULL;
+//     }
+//     void push(int val){
+//         Node * nn = new Node(val);
+//         nn->next=top;
+//         top=nn;
+//     }
+//     int pop(){
+//         if(isEmpty()){
+//             cout<<"Empty";
+//             return;
+//         }
+//         int popped=top->data;
+//         Node* temp=top;
+//         top=top->next;
+//         delete temp;
+//         cout<<"Pop";
+//         return popped;
+//     }
+//     void display(){
+//         if(isEmpty()){
+//             cout<<"Empty";
+//             return;
+//         }
+//         Node* temp=top;
+//         while(temp!=NULL){
+//             cout<<temp->data<<" ";
+//             temp=temp->next;
+//         }
+//         cout<<endl;
+//     }
 
-}
+// }
+
+

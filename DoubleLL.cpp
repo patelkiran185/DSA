@@ -22,10 +22,10 @@ class DoubleLL{
  
     void insert(int val);
     void insertAtHead(int val,int pos);
-    void insertAtTail(int val);
     void insertAtPos(int val,int pos);
     void deleteAtHead();
     void deleteAtTail();
+    void printreverse();
     void deleteAtPos(int pos);
     void display();
 
@@ -64,19 +64,19 @@ void  DoubleLL :: insertAtHead(int val,int pos){
     head->prev=newNode;
     head=newNode;
 }
-void  DoubleLL :: insertAtTail(int val){
-    Node* newNode=new Node(val);
-    if(head==nullptr){
-        head=newNode;
-        return;
-    }
-    Node* temp=head;
-    while(temp->next!=nullptr){
-        temp=temp->next;
-    }
-    temp->next=newNode;
-    newNode->prev=temp;
-}
+// void  DoubleLL :: insertAtTail(int val){
+//     Node* newNode=new Node(val);
+//     if(head==nullptr){
+//         head=newNode;
+//         return;
+//     }
+//     Node* temp=head;
+//     while(temp->next!=nullptr){
+//         temp=temp->next;
+//     }
+//     temp->next=newNode;
+//     newNode->prev=temp;
+// }
 void  DoubleLL :: insertAtPos(int val,int pos){
     Node* newNode=new Node(val);
     if(head==nullptr){
@@ -132,6 +132,18 @@ void DoubleLL :: display(){
 
         cout<<"<-"<<temp->val<<"-> ";
         temp=temp->next;
+    }
+    cout<<"NULL"<<endl;
+}
+void DoubleLL :: printreverse(){
+    Node* temp=head;
+    while(temp->next!=nullptr){
+        temp=temp->next;
+    }
+    cout<<"NULL";
+    while(temp!=nullptr){
+        cout<<"<-"<<temp->val<<"->";
+        temp=temp->prev;
     }
     cout<<"NULL"<<endl;
 }

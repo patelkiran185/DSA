@@ -1,4 +1,4 @@
-// circular queue linked list
+// circular linked list
 #include <iostream>
 using namespace std;
 class Node
@@ -60,7 +60,7 @@ public:
                     Node *temp = new Node(val);
                     temp->next = p->next;
                     p->next = temp;
-                    if (p == last)
+                    if (p == last)  
                         last = temp;
                     return;
                 }

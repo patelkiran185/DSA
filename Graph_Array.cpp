@@ -28,6 +28,10 @@ class Graph{
             cout<<endl;
         }
     }
+    void removeEdge(int u,int v){
+        adjacentMatrix[u][v]=0;
+        adjacentMatrix[v][u]=0;
+    }
 };
 int main(){
     Graph graph(5);

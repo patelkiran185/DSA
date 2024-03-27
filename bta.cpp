@@ -54,6 +54,58 @@ class BinartTreeArray{
         PostOrderDisplay(2*r+2);
         cout<<a[r]<<" ";
     }
+    void insertElement(int element){
+        a[top]=element;
+        top+=1;
+    }
+    void insertAtPosition(int element,int position){
+        a[position]=element;
+    }
+    void deleteElement(int element){
+        for(int i=0;i<top;i++){
+            if(a[i]==element){
+                for(int j=i;j<top-1;j++){
+                    a[j]=a[j+1];
+                }
+                top-=1;
+                break;
+            }
+        }
+    }
+    void deleteAtPos(int position){
+        for(int i=position;i<top-1;i++){
+            a[i]=a[i+1];
+        }
+        top-=1;
+    }
+    void diameterOfBinaryTree(int root){
+        int leftHeight=0;
+        int rightHeight=0;
+        if(root>=top){
+            return;
+        }
+        if(2*root+1<top){
+            leftHeight=height(2*root+1);
+        }
+        if(2*root+2<top){
+            rightHeight=height(2*root+2);
+        }
+        cout<<leftHeight+rightHeight+1;
+    }
+    int height(int root){
+        if(root>=top){
+            return 0;
+        }
+        int leftHeight=0;
+        int rightHeight=0;
+        if(2*root+1<top){
+            leftHeight=height(2*root+1);
+        }
+        if(2*root+2<top){
+            rightHeight=height(2*root+2);
+        }
+        return max(leftHeight,rightHeight)+1;
+    }
 
 };
 int main (){
@@ -76,6 +128,9 @@ int main (){
     cout << "InOrderDisplay: ";
     bta->InOrderDisplay(0);
     cout << endl;
+    cout<<"DiaMeter of Binary Tree:";
+    bta->diameterOfBinaryTree(0);
+    cout<<endl;
 
     return 0;
 }
